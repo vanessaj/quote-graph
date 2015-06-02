@@ -19,24 +19,51 @@
     <body>
         <script type="text/javascript">
             // D3 code 
-            var dataset = [ 5, 10, 15, 20, 25, 32];
+
+            //var dataset = [5,10,15,20,25,30];
+            var dataset = [];                        
             
-            /*d3.select("body").selectAll("p").data(dataset).enter().append("p").text(function(d) { return "We are lookin' at # :" + d; })
-            .style("color", function(d) {
-                if ((d%2)!=0)
-                    return "green";
-                else
-                    return "red";
-            });*/
-            d3.select("body").selectAll("div")
+            for (var i = 0; i < 10; i++) {          
+                var newNum = Math.round(Math.random() * 30);  
+                dataset.push(newNum);          
+            }
+            
+            // vars for svg width and height
+            var w = 500;
+            var h = 100;
+            // var for svg
+            var svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
+            
+            var circles = svg.selectAll("circle")
                 .data(dataset)
                 .enter()
-                .append("div")
-                .attr("class", "bar")
-                .style("height", function(d) {
-                    var barHeight = d * 5;
-                    return barHeight + "px";
+                .append("circle");
+
+            circles.attr("cx", function(d, i) {
+                        return (i * 65) + 30;
+                    })
+                    .attr("cy", h/2)
+                    .attr("r", function(d) {
+                    return d;
+                    })
+                .attr("stroke", function(d){
+                    if ((d%2) != 0)
+                        return "green"
+                    else
+                        return "red"
+                    
+                })
+                .attr("stroke-width", function(d) {return d/3})
+                .attr("fill", function(d){
+                    if (d>=15)
+                        return "blue"
+                    else
+                        return "yellow"
                 });
+
+
+
+
         </script>
     </body>
 </html> 
