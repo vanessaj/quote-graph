@@ -15,29 +15,49 @@
             <h1>Solar System Visualization</h1>
             <p>Visualizations of different data about the planets in our solar system</p>
             <br>
-            <h2>Planet size</h2>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Planet Size</h3>
+              </div>
+              <div class="panel-body">
+                <div id="chart1" class="container"></div>
+              </div>
+            </div>
+
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">Planet Composition</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div id="comp-mercury"></div>
+                        <h3>Mercury</h3>
+                        <p>Believed to have a metallic core, likely of iron with a rocky outer shell</p>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div id="comp-venus"></div>
+                        <h3>Venus</h3>
+                        <p>Curst is 50 km thick, 3000 km mantle and then solid core</p>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div id="comp-earth"></div>
+                        <h3>Earth</h3>
+                        <p>Crust, mantle, liquid outer core, solid inner core</p>
+                    </div>
+                </div>
+                
+              </div>
+            </div>
+
             <br>
         </div>
-        <div id="chart1" class="container"></div>
+        
     </body>
 
-    <!-- D3 CODE -->
+    <!-- D3 CODE - Planet Size & Distance from Sun -->
     <script type="text/javascript">
-        //Dynamic, random dataset
-        /*
-        var dataset = [
-            [57 9, 2440],
-            [108 2, 6052],
-            [149 6, 6371],
-            [227 9, 3390],
-            [778 5, 69911],
-            [1 433 0, 58232],
-            [2 877 0, 25362],
-            [4 503 0, 24622]
-            ];
-            */
-        //var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95],[410, 12], [475, 44], [25, 67], [85, 21], [220, 88], [600,150]];
-        //var dataset = [[57 910 000, 2440], [108200 000, 6052]];
+
         var dataset = [[57910000 , 2440], [108200000 , 6052], [149600000, 6371], [227900000, 3390], [778500000,69911], [1433000000, 58232], 
                         [2877000000, 25362], [4503000000, 24622]];
         
@@ -48,7 +68,7 @@
         var padding = 50;
 
 
-        // scale 
+        // scales 
         var xScale = d3.scale.log()
             .domain([d3.min(dataset, function(d){return d[0];}) - 10000000,
                     d3.max(dataset, function(d) { return d[0]; })])
@@ -90,7 +110,8 @@
             })
             .attr("r", function(d) {
                 return rScale(d[1]);
-            });
+            })
+            .attr("fill", "blue");
 
         // adding x axis
         svg.append("g")
@@ -121,6 +142,12 @@
 
     // end of D3  code
     </script>
+    <!-- Composition JS Scripts -->
+    <script type="text/javascript" src="js/comp_mercury.js"></script>
+    <script type="text/javascript" src="js/comp_venus.js"></script>
+    <script type="text/javascript" src="js/comp_earth.js"></script>
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
