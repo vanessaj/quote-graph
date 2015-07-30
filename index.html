@@ -30,20 +30,47 @@
               </div>
               <div class="panel-body">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-6 col-md-3">
                         <div id="comp-mercury"></div>
                         <h3>Mercury</h3>
                         <p>Believed to have a metallic core, likely of iron with a rocky outer shell</p>
                     </div>
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-6 col-md-3">
                         <div id="comp-venus"></div>
                         <h3>Venus</h3>
                         <p>Curst is 50 km thick, 3000 km mantle and then solid core</p>
                     </div>
-                    <div class="col-sm-6 col-md-4">
+                    <div class="col-sm-6 col-md-3">
                         <div id="comp-earth"></div>
                         <h3>Earth</h3>
                         <p>Crust, mantle, liquid outer core, solid inner core</p>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="comp-mars"></div>
+                        <h3>Mars</h3>
+                        <p>description</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div id="comp-jupiter"></div>
+                        <h3>Jupiter</h3>
+                        <p>description</p>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="comp-saturn"></div>
+                        <h3>Saturn</h3>
+                        <p>description</p>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="comp-uranus"></div>
+                        <h3>Uranus</h3>
+                        <p>description</p>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="comp-neptune"></div>
+                        <h3>Neptune</h3>
+                        <p>description</p>
                     </div>
                 </div>
                 
@@ -78,7 +105,7 @@
             .range([svgH - padding,padding]);
         var rScale = d3.scale.linear()
              .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-             .range([2, 10]);
+             .range([4, 35]);
 
         // axes
         var xAxis = d3.svg.axis()
@@ -140,12 +167,17 @@
             .attr("transform", "rotate(-90)")
             .text("Radius");
 
-    // end of D3  code
+    // end of D3 Planets' Size code
     </script>
-    <!-- Composition JS Scripts -->
-    <script type="text/javascript" src="js/comp_mercury.js"></script>
-    <script type="text/javascript" src="js/comp_venus.js"></script>
-    <script type="text/javascript" src="js/comp_earth.js"></script>
+    <!-- Planet Composition JS Scripts -->
+    <script type="text/javascript" src="js/comp-mercury.js"></script>
+    <script type="text/javascript" src="js/comp-venus.js"></script>
+    <script type="text/javascript" src="js/comp-earth.js"></script>
+    <script type="text/javascript" src="js/comp-mars.js"></script>
+    <script type="text/javascript" src="js/comp-jupiter.js"></script>
+    <script type="text/javascript" src="js/comp-saturn.js"></script>
+    <script type="text/javascript" src="js/comp-uranus.js"></script>
+    <script type="text/javascript" src="js/comp-neptune.js"></script>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
