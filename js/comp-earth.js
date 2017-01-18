@@ -10,8 +10,8 @@ var circles = svgContainer.selectAll("circle")
                             .enter()
                             .append("circle");
 var rScale = d3.scale.linear()
-     .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-     .range([100, 250]);
+     .domain([d3.min(dataset, function(d){return d[1];}), d3.max(dataset, function(d) { return d[1]; })])
+     .range([0, 250]);
 var circleAttributes = circles
                .attr("cx", svgW/2)
                .attr("cy", svgH/2)

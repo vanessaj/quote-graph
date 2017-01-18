@@ -1,4 +1,4 @@
-var circleRadii = [3390];
+var circleRadii = [3390, 3340, 1775];
 var color = d3.scale.category20();
 var svgW = 250;
 var svgH = 250;
@@ -11,7 +11,7 @@ var circles = svgContainer.selectAll("circle")
                             .append("circle");
 var rScale = d3.scale.linear()
      .domain([0, d3.max(dataset, function(d) { return d[1]; })])
-     .range([100, 250]);
+     .range([0, 1000]);
 var circleAttributes = circles
                .attr("cx", svgW/2)
                .attr("cy", svgH/2)
